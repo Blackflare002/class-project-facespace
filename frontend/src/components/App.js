@@ -2,6 +2,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import Homepage from "./Homepage";
+import Profile from "./Profile";
+// import image from "../"
 
 const App = () => {
   return (
@@ -13,7 +15,9 @@ const App = () => {
           <Route exact path="/">
             <Homepage />
           </Route>
-          <Route path="/page-1">Page 1</Route>
+          <Route exact path="/profile/:profileId">
+            <Profile />
+          </Route>
         </Switch>
       </div>
     </BrowserRouter>

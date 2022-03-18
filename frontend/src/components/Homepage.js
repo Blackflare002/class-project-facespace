@@ -34,7 +34,7 @@ const Homepage = () => {
         </div>
         <AvatarBox>
           {homePics.data.map((el) => {
-            //   console.log("EL: ", el);
+            console.log("EL: ", el);
             return (
               <div key={Math.round(Math.random() * 8008135)}>
                 <SmallAvatar
@@ -57,7 +57,7 @@ const AvatarBox = styled.div`
   gap: 5px;
 `;
 
-const SmallAvatar = styled.img`
+export const SmallAvatar = styled.img`
   height: 100px;
 `;
 
@@ -65,7 +65,7 @@ const BigHeader = styled.h1`
   font-size: var(--header-height);
 `;
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   margin-left: 10vw;
   margin-right: 10vw;
   /* border: 1px solid black; */
