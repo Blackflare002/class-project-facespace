@@ -35,19 +35,60 @@ const Profile = () => {
     <>
       <ProfileBg></ProfileBg>
       <Wrapper>
-        <div>Profile</div>
-        <SmallAvatar src={userId.data.avatarUrl} />
+        <ProfilePicBox>
+          <ProfilePic src={userId.data.avatarUrl} />
+          <ProfileName>{userId.data.name}</ProfileName>
+        </ProfilePicBox>
         <div>
-          <div>Friends</div>
-          {userId.data.friends.map((el) => {
-            console.log(el);
-            return <Friends friendId={el}></Friends>;
-          })}
+          <FriendsDivider>Friends</FriendsDivider>
+          <InnerFriendBox>
+            {userId.data.friends.map((el) => {
+              console.log(el);
+              return (
+                //   <InnerFriendBox>
+                <>
+                  <Friends friendId={el}></Friends>
+                  <div>{}</div>
+                </>
+                //   </InnerFriendBox>
+              );
+            })}
+          </InnerFriendBox>
         </div>
       </Wrapper>
     </>
   );
 };
+
+const FriendsDivider = styled.div`
+  color: var(--primary-color);
+  font-family: var(--heading-font-family);
+  border-bottom: solid 2px var(--primary-color);
+  margin-bottom: 10px;
+`;
+
+const InnerFriendBox = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const ProfileName = styled.div`
+  font-family: var(--heading-font-family);
+  color: var(--primary-color);
+  font-size: 40px;
+`;
+
+const ProfilePicBox = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const ProfilePic = styled(SmallAvatar)`
+  height: 200px;
+  position: relative;
+  top: -100px;
+  border: 5px solid var(--primary-color);
+`;
 
 const ProfileBg = styled.div`
   width: 100vw;

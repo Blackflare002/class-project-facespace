@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { SmallAvatar, Wrapper } from "./Homepage";
+import styled from "styled-components";
 
 const Friends = ({ friendId }) => {
   console.log(friendId);
@@ -23,7 +24,26 @@ const Friends = ({ friendId }) => {
       </Wrapper>
     );
   }
-  return <SmallAvatar src={friend.data.avatarUrl} />;
+  return (
+    <>
+      <InnerFriendBox>
+        <SmallAvatar src={friend.data.avatarUrl} />
+        <FriendName>{friend.data.name}</FriendName>
+      </InnerFriendBox>
+    </>
+  );
 };
+
+const InnerFriendBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+const FriendName = styled.div`
+  background-color: lightblue;
+  color: black;
+  font-weight: bold;
+`;
 
 export default Friends;
