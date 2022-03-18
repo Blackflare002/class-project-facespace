@@ -41,7 +41,8 @@ const InnerFriendBox = styled.div`
 `;
 
 const FriendName = styled.div`
-  background-color: lightblue;
+  /* background-color: lightblue; */
+  background-color: var(--accent-bg-color);
   color: black;
   font-weight: bold;
 `;

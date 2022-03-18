@@ -3,6 +3,7 @@ import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import Homepage from "./Homepage";
 import Profile from "./Profile";
+import SignIn from "./SignIn";
 // import image from "../"
 
 const App = () => {
@@ -17,6 +18,9 @@ const App = () => {
           </Route>
           <Route exact path="/profile/:profileId">
             <Profile />
+          </Route>
+          <Route exact path="/signin">
+            <SignIn />
           </Route>
         </Switch>
       </div>
