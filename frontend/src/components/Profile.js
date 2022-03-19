@@ -88,6 +88,10 @@ const ProfilePic = styled(SmallAvatar)`
   position: relative;
   top: -100px;
   border: 5px solid var(--primary-color);
+  :hover {
+    border: 5px solid var(--primary-color);
+    background-color: none;
+  }
 `;
 
 const ProfileBg = styled.div`

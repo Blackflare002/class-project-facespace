@@ -28,14 +28,18 @@ const Friends = ({ friendId }) => {
   return (
     <>
       <InnerFriendBox>
-        <Link to={`/profile/${friend.data.id}`}>
+        <StyledLink to={`/profile/${friend.data.id}`}>
           <SmallAvatar src={friend.data.avatarUrl} />
           <FriendName>{friend.data.name}</FriendName>
-        </Link>
+        </StyledLink>
       </InnerFriendBox>
     </>
   );
 };
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
 
 const InnerFriendBox = styled.div`
   display: flex;
