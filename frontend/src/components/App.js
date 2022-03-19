@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import Homepage from "./Homepage";
@@ -11,7 +11,18 @@ const App = () => {
     <BrowserRouter>
       <GlobalStyles />
       <div>
-        <NavBar>FaceSpace</NavBar>
+        <NavBar>
+          <div>
+            <StyledLink to="/">
+              <SiteHeader>FaceSpace</SiteHeader>
+            </StyledLink>
+          </div>
+          <div>
+            <SiteHeader>
+              <StyledLink to="/signin">Sign In</StyledLink>
+            </SiteHeader>
+          </div>
+        </NavBar>
         <Switch>
           <Route exact path="/">
             <Homepage />
@@ -28,13 +39,25 @@ const App = () => {
   );
 };
 
+const SiteHeader = styled.div`
+  color: white;
+  font-family: var(--heading-font-family);
+  font-size: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+`;
+
 const NavBar = styled.div`
   height: 5vh;
   width: 100vw;
   background-color: var(--primary-color);
-  color: white;
-  font-family: var(--heading-font-family);
-  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export default App;

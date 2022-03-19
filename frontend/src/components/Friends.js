@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { SmallAvatar, Wrapper } from "./Homepage";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Friends = ({ friendId }) => {
-  console.log(friendId);
+  // console.log("Friend ID: ", friendId);
   const [friend, setFriend] = useState(null);
 
   useEffect(() => {
     fetch(`/api/users/${friendId}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setFriend(data);
       })
       .catch(() => {
@@ -27,8 +28,10 @@ const Friends = ({ friendId }) => {
   return (
     <>
       <InnerFriendBox>
-        <SmallAvatar src={friend.data.avatarUrl} />
-        <FriendName>{friend.data.name}</FriendName>
+        <Link to={`/profile/${friend.data.id}`}>
+          <SmallAvatar src={friend.data.avatarUrl} />
+          <FriendName>{friend.data.name}</FriendName>
+        </Link>
       </InnerFriendBox>
     </>
   );

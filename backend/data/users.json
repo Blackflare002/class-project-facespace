@@ -43,9 +43,9 @@
   },
   {
     "id": "1016",
-    "name": "Oliver",
+    "name": "Giant Military Cats",
     "friends": ["1014", "1015", "1017"],
-    "avatarUrl": "/images/profile-pics/000008.jpg"
+    "avatarUrl": "/images/profile-pics/militarycats-avatar.jpg"
   },
   {
     "id": "1017",
@@ -91,15 +91,15 @@
   },
   {
     "id": "1024",
-    "name": "Farhan",
+    "name": "Diplo-Mog",
     "friends": ["1023", "1022", "1025"],
-    "avatarUrl": "/images/profile-pics/000023.jpg"
+    "avatarUrl": "/images/profile-pics/diplomog-avatar.jpg"
   },
   {
     "id": "1025",
-    "name": "Yasin",
+    "name": "Treasury Mog",
     "friends": ["1023", "1024", "1022"],
-    "avatarUrl": "/images/profile-pics/000026.jpg"
+    "avatarUrl": "/images/profile-pics/treasurymog-avatar.jpg"
   },
   {
     "id": "1026",

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Homepage = () => {
@@ -34,13 +35,22 @@ const Homepage = () => {
         </div>
         <AvatarBox>
           {homePics.data.map((el) => {
-            console.log("EL: ", el);
+            // console.log("EL: ", el);
+            // console.log("EL ID: ", el.id);
+            let profileId = el.id;
             return (
               <div key={Math.round(Math.random() * 8008135)}>
-                <SmallAvatar
+                <Link
+                  to={`/profile/${profileId}`}
                   key={Math.round(Math.random() * 8008135)}
-                  src={el.avatarUrl}
-                ></SmallAvatar>
+                >
+                  <div key={Math.round(Math.random() * 8008135)}>
+                    <SmallAvatar
+                      key={Math.round(Math.random() * 8008135)}
+                      src={el.avatarUrl}
+                    ></SmallAvatar>
+                  </div>
+                </Link>
               </div>
             );
           })}
@@ -59,6 +69,10 @@ const AvatarBox = styled.div`
 
 export const SmallAvatar = styled.img`
   height: 100px;
+  :hover {
+    border: solid blue 5px;
+    background-color: blue;
+  }
 `;
 
 const BigHeader = styled.h1`

@@ -12,13 +12,13 @@ const Profile = () => {
     fetch(`/api/users/${profileId}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setUserId(data);
       })
       .catch(() => {
         console.log("Error");
       });
-  }, []);
+  }, [profileId]);
 
   if (userId === null) {
     return (
@@ -29,7 +29,7 @@ const Profile = () => {
   }
 
   console.log("user id: ", userId.data);
-  console.log("user friends: ", userId.data.friends);
+  // console.log("user friends: ", userId.data.friends);
 
   return (
     <>
@@ -43,14 +43,14 @@ const Profile = () => {
           <FriendsDivider>Friends</FriendsDivider>
           <InnerFriendBox>
             {userId.data.friends.map((el) => {
-              console.log(el);
+              // console.log(el);
               return (
-                //   <InnerFriendBox>
-                <>
-                  <Friends friendId={el}></Friends>
-                  <div>{}</div>
-                </>
-                //   </InnerFriendBox>
+                <div key={Math.round(Math.random() * 8008135)}>
+                  <Friends
+                    friendId={el}
+                    key={Math.round(Math.random() * 8008135)}
+                  ></Friends>
+                </div>
               );
             })}
           </InnerFriendBox>
