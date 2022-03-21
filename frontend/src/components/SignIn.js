@@ -1,21 +1,70 @@
+// import { useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
+import { useContext, useState } from "react";
+//{ UserInfoProvider }
+import UserInfoContext from "./userInfoContext";
+
+//useContext
 
 const SignIn = () => {
+  // const [userInfo, setUserInfo] = useState(null);
+  const { userInfo, setUserInfo } = useContext(UserInfoContext);
+  const [error, setError] = useState(null);
+  const [username, setUsername] = useState("");
+
+  const handleChange = (value) => {
+    // setUserInfo(value);
+    setUsername(value);
+    console.log("VALUE: ", value);
+    // console.log("USER: ", userInfo);
+  };
+
+  let history = useHistory();
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    fetch("/signin", {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({ username }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("SIGNIN DATA: ", data);
+        if (data.status === 200) {
+          setUserInfo(data.user);
+          sessionStorage.setItem("user", JSON.stringify(data.user));
+          history.push("/");
+        } else {
+          console.log("error");
+          setError(true);
+        }
+      });
+  };
+  if (userInfo) {
+    history.push("/");
+  }
   return (
     <>
       <Background></Background>
       <SignInHolder>
         <SignInBox></SignInBox>
         <LabelBox2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <LabelBox>
               {/* <label htmlFor="name">First name:</label> */}
               <input
                 type="text"
                 name="fname"
                 placeholder="Enter your first name!"
+                onChange={(ev) => handleChange(ev.target.value)}
               />
               <Button>Submit</Button>
+              {error && <div>User doesn't exist!</div>}
             </LabelBox>
           </form>
         </LabelBox2>

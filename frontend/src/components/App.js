@@ -4,9 +4,18 @@ import GlobalStyles from "./GlobalStyles";
 import Homepage from "./Homepage";
 import Profile from "./Profile";
 import SignIn from "./SignIn";
-// import image from "../"
+import UserInfoContext from "./userInfoContext";
+import { useContext } from "react";
 
 const App = () => {
+  const { userInfo, setUserInfo } = useContext(UserInfoContext);
+  console.log("APP, USERINFO: ", userInfo);
+  // let currentUser = sessionStorage.getItem("user");
+  // let currentUser = JSON.parse(sessionStorage.getItem("user"));
+  // setUserInfo(currentUser);
+  console.log("USERINFO 2: ", userInfo);
+  // console.log("USERINFO 3: ", currentUser);
+
   return (
     <BrowserRouter>
       <GlobalStyles />
@@ -19,7 +28,11 @@ const App = () => {
           </div>
           <div>
             <SiteHeader>
-              <StyledLink to="/signin">Sign In</StyledLink>
+              {userInfo ? (
+                <div>Welcome, {userInfo.name}</div>
+              ) : (
+                <StyledLink to="/signin">Sign In</StyledLink>
+              )}
             </SiteHeader>
           </div>
         </NavBar>

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import UserInfoContext from "./userInfoContext";
+import { useContext } from "react";
 
 const Homepage = () => {
   const [homePics, setHomePics] = useState(null);
@@ -39,14 +41,14 @@ const Homepage = () => {
             // console.log("EL ID: ", el.id);
             let profileId = el.id;
             return (
-              <div key={Math.round(Math.random() * 8008135)}>
+              <div key={Math.round(Math.random() * 123456)}>
                 <Link
                   to={`/profile/${profileId}`}
-                  key={Math.round(Math.random() * 8008135)}
+                  key={Math.round(Math.random() * 123456)}
                 >
-                  <div key={Math.round(Math.random() * 8008135)}>
+                  <div key={Math.round(Math.random() * 123456)}>
                     <SmallAvatar
-                      key={Math.round(Math.random() * 8008135)}
+                      key={Math.round(Math.random() * 123456)}
                       src={el.avatarUrl}
                     ></SmallAvatar>
                   </div>
@@ -73,6 +75,10 @@ export const SmallAvatar = styled.img`
     border: solid blue 5px;
     background-color: blue;
   }
+`;
+
+const FriendAvatar = styled(SmallAvatar)`
+  outline: solid 2px green;
 `;
 
 const BigHeader = styled.h1`
