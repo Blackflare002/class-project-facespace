@@ -11,10 +11,7 @@ const App = () => {
   // setUserInfo
   const { userInfo } = useContext(UserInfoContext);
   console.log("APP, USERINFO: ", userInfo);
-  // let currentUser = sessionStorage.getItem("user");
-  // let currentUser = JSON.parse(sessionStorage.getItem("user"));
-  // setUserInfo(currentUser);
-  console.log("USERINFO 2: ", userInfo);
+  // console.log("USERINFO 2: ", userInfo);
   // console.log("USERINFO 3: ", currentUser);
 
   return (

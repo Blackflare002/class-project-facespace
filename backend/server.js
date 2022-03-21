@@ -37,12 +37,11 @@ app.delete("/api/users/:id", passUsersAlong, deleteUser);
 app.patch("/api/friends", passUsersAlong, handleFriends);
 
 app.post("/signin", (req, res) => {
-  console.log("REQ.BODY: ", req.body);
-  console.log("USER'S NAME: ", req.body.userInfo);
-  // console.log("USER ARRAY NAMES: ", users);
+  // console.log("REQ.BODY: ", req.body);
+  // console.log("USER'S NAME: ", req.body.username);
   let currentUser = null;
   users.forEach((el) => {
-    console.log("LOGGED NAME: ", el.name);
+    // console.log("LOGGED NAME: ", el.name);
     if (req.body.username.toLowerCase() === el.name.toLowerCase()) {
       currentUser = el;
     }

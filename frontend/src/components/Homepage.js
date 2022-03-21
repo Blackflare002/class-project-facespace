@@ -38,7 +38,7 @@ const Homepage = () => {
         <AvatarBox>
           {homePics.data.map((el) => {
             let profileId = el.id;
-            return userInfo.friends.includes(el.id) ? (
+            return userInfo && userInfo.friends.includes(el.id) ? (
               <Link
                 to={`/profile/${profileId}`}
                 key={Math.round(Math.random() * 123456)}
@@ -82,7 +82,7 @@ export const SmallAvatar = styled.img`
 `;
 
 const FriendAvatar = styled(SmallAvatar)`
-  outline: solid 3px green;
+  border: solid 3px green;
 `;
 
 const BigHeader = styled.h1`

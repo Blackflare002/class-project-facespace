@@ -8,13 +8,11 @@ import UserInfoContext from "./userInfoContext";
 //useContext
 
 const SignIn = () => {
-  // const [userInfo, setUserInfo] = useState(null);
   const { userInfo, setUserInfo } = useContext(UserInfoContext);
   const [error, setError] = useState(null);
   const [username, setUsername] = useState("");
 
   const handleChange = (value) => {
-    // setUserInfo(value);
     setUsername(value);
     console.log("VALUE: ", value);
     // console.log("USER: ", userInfo);

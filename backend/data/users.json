@@ -44,7 +44,7 @@
   {
     "id": "1016",
     "name": "Giant Military Cats",
-    "friends": ["1014", "1015", "1017"],
+    "friends": ["1014", "1015", "1017", "1024", "1025"],
     "avatarUrl": "/images/profile-pics/militarycats-avatar.jpg"
   },
   {
@@ -92,13 +92,13 @@
   {
     "id": "1024",
     "name": "Diplo-Mog",
-    "friends": ["1023", "1022", "1025"],
+    "friends": ["1023", "1022", "1025", "1016"],
     "avatarUrl": "/images/profile-pics/diplomog-avatar.jpg"
   },
   {
     "id": "1025",
     "name": "Treasury Mog",
-    "friends": ["1023", "1024", "1022"],
+    "friends": ["1023", "1024", "1022", "1016"],
     "avatarUrl": "/images/profile-pics/treasurymog-avatar.jpg"
   },
   {
