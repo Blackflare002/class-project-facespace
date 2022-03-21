@@ -8,7 +8,8 @@ import UserInfoContext from "./userInfoContext";
 import { useContext } from "react";
 
 const App = () => {
-  const { userInfo, setUserInfo } = useContext(UserInfoContext);
+  // setUserInfo
+  const { userInfo } = useContext(UserInfoContext);
   console.log("APP, USERINFO: ", userInfo);
   // let currentUser = sessionStorage.getItem("user");
   // let currentUser = JSON.parse(sessionStorage.getItem("user"));

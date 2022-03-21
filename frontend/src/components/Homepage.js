@@ -6,6 +6,8 @@ import { useContext } from "react";
 
 const Homepage = () => {
   const [homePics, setHomePics] = useState(null);
+  // setUserInfo
+  const { userInfo } = useContext(UserInfoContext);
 
   useEffect(() => {
     fetch("/api/users")
@@ -27,8 +29,6 @@ const Homepage = () => {
     );
   }
 
-  //   console.log("user 0: ", homePics.data[0].avatarUrl);
-
   return (
     <>
       <Wrapper>
@@ -37,23 +37,27 @@ const Homepage = () => {
         </div>
         <AvatarBox>
           {homePics.data.map((el) => {
-            // console.log("EL: ", el);
-            // console.log("EL ID: ", el.id);
             let profileId = el.id;
-            return (
-              <div key={Math.round(Math.random() * 123456)}>
-                <Link
-                  to={`/profile/${profileId}`}
+            return userInfo.friends.includes(el.id) ? (
+              <Link
+                to={`/profile/${profileId}`}
+                key={Math.round(Math.random() * 123456)}
+              >
+                <FriendAvatar
                   key={Math.round(Math.random() * 123456)}
-                >
-                  <div key={Math.round(Math.random() * 123456)}>
-                    <SmallAvatar
-                      key={Math.round(Math.random() * 123456)}
-                      src={el.avatarUrl}
-                    ></SmallAvatar>
-                  </div>
-                </Link>
-              </div>
+                  src={el.avatarUrl}
+                />
+              </Link>
+            ) : (
+              <Link
+                to={`/profile/${profileId}`}
+                key={Math.round(Math.random() * 123456)}
+              >
+                <SmallAvatar
+                  key={Math.round(Math.random() * 123456)}
+                  src={el.avatarUrl}
+                />
+              </Link>
             );
           })}
         </AvatarBox>
@@ -78,7 +82,7 @@ export const SmallAvatar = styled.img`
 `;
 
 const FriendAvatar = styled(SmallAvatar)`
-  outline: solid 2px green;
+  outline: solid 3px green;
 `;
 
 const BigHeader = styled.h1`
