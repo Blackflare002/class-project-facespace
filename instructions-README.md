@@ -1,3 +1,5 @@
+(Instructions provided by Concordia Bootcamps)
+
 # Mini-Project: Facespace!
 
 ## Goal
